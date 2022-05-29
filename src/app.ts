@@ -1,7 +1,20 @@
 import express, { Request, Response } from 'express';
-require('dotenv').config();
+import env from 'dotenv';
+env.config();
+import cors from 'cors';
+import methodOverride from 'method-override';
+
+import projectRouter from './routers/projectRouter';
 
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({limit: '1mb'}));
+
+app.use(cors()); 		//enble pre-flight
+app.use(methodOverride('_method'));
+
+app.use('/project', projectRouter);
 
 app.get('/', (req: Request, res: Response) => {
 	res.send('welcome, sangyeon!!');
