@@ -5,7 +5,7 @@ const router = express.Router();
 
 //router.get('', projectController.getProjects);
 router.get('/:mobile_number/:name', projectController.getProjectByMobileWithName);
-//router.post('', projectController.postProject);
+router.post('', projectController.postProject);
 //router.put('', projectController.putProject);
 //router.delete('', projectController.deleteProject);
 

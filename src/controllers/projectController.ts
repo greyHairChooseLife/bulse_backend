@@ -8,7 +8,16 @@ const getProjectByMobileWithName = async (req: Request, res: Response) => {
 	return res.json(result);
 }
 
+const postProject = (req: Request, res: Response) => {
+	const result = {
+		fromServer: 'hi this is Msg from api server. good day today!! :D',
+		whatIgot: req.body,
+	}
+	res.json(result);
+}
+
 export = {
 	getProjectByMobileWithName: getProjectByMobileWithName,
+	postProject: postProject,
 }
 
