@@ -8,11 +8,11 @@ const getProjectByMobileWithName = async (req: Request, res: Response) => {
 	return res.json(result);
 }
 
-const postProject = (req: Request, res: Response) => {
-	const result = {
-		fromServer: 'hi this is Msg from api server. good day today!! :D',
-		whatIgot: req.body,
-	}
+const postProject = async (req: Request, res: Response) => {
+	const handOver = req.body;
+
+	const result = await projectModel.postProject(handOver);
+
 	res.json(result);
 }
 
