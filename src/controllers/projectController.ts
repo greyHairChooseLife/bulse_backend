@@ -13,7 +13,7 @@ const postProject = async (req: Request, res: Response) => {
 
 	const result = await projectModel.postProject(handOver);
 
-	res.json(result);
+	return res.json(result);
 }
 
 export = {

@@ -17,7 +17,7 @@ app.use(methodOverride('_method'));
 app.use('/project', projectRouter);
 
 app.get('/', (req: Request, res: Response) => {
-	res.send('welcome, sangyeon!!');
+	res.send('this is bulse backend server home page!!');
 });
 
 app.listen(process.env.PORT, () => {
