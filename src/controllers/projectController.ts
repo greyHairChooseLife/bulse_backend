@@ -16,8 +16,17 @@ const postProject = async (req: Request, res: Response) => {
 	return res.json(result);
 }
 
+const updateProject = async (req: Request, res: Response) => {
+	const handOver = req.body;
+
+	const result = await projectModel.updateProject(handOver);
+
+	return res.json(result);
+}
+
 export = {
 	getProjectByMobileWithName: getProjectByMobileWithName,
 	postProject: postProject,
+	updateProject: updateProject,
 }
 
