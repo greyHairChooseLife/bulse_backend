@@ -5,6 +5,7 @@ import cors from 'cors';
 import methodOverride from 'method-override';
 
 import projectRouter from './routers/projectRouter';
+import adminRouter from './routers/adminRouter';
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(cors()); 		//enble pre-flight
 app.use(methodOverride('_method'));
 
 app.use('/project', projectRouter);
+app.use('/admin', adminRouter);
 
 app.get('/', (req: Request, res: Response) => {
 	res.send('this is bulse backend server home page!!');
