@@ -7,25 +7,25 @@ const getLast = async (req: Request, res: Response) => {
 	return res.json(result);
 }
 
-const login = (req: Request, res: Response) => {
+const login = async (req: Request, res: Response) => {
+	const loginSolution = await adminModel.beforeLogin();
+	const loginTry = req.body.proposed;
 
+	let returnValue;
+	if(loginSolution === loginTry){
+		returnValue = {
+			msg: 'login success',
+			value: await adminModel.afterLogin()
+		}
+	}else{
+		returnValue = {
+			msg: 'login fail',
+			value: null
+		}
+	}
+
+	return res.json(returnValue);
 }
-
-//const postProject = async (req: Request, res: Response) => {
-//	const handOver = req.body;
-//
-//	const result = await projectModel.postProject(handOver);
-//
-//	return res.json(result);
-//}
-//
-//const updateProject = async (req: Request, res: Response) => {
-//	const handOver = req.body;
-//
-//	const result = await projectModel.updateProject(handOver);
-//
-//	return res.json(result);
-//}
 
 export = {
 	getLast: getLast,
