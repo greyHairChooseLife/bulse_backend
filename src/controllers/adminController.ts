@@ -27,8 +27,18 @@ const login = async (req: Request, res: Response) => {
 	return res.json(returnValue);
 }
 
+const register = async (req: Request, res: Response) => {
+	await adminModel.register(req.body.data);
+}
+
+const deregister = async (req: Request, res: Response) => {
+	adminModel.deregister(req.body.id);
+}
+
 export = {
 	getLast: getLast,
 	login: login,
+	register: register,
+	deregister: deregister,
 }
 

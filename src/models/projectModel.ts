@@ -58,8 +58,7 @@ const updateProject = async ( form: INewProject ) => {
 	const formattedRegisterDate = registerDateOrigin.toISOString().slice(0, 19).replace('T', ' ');
 	const formattedProjectDate = projectDateOrigin.toISOString().slice(0, 19).replace('T', ' ');
 
-	const result = await db.query(`UPDATE project SET registered_datetime='${formattedRegisterDate}', project_subject='${projectSubject}', project_description='${projectDescription}', 
-		project_keyword='${projectKeyword}', project_date='${formattedProjectDate}', project_time='${projectTime}', project_hour='${projectHour}', bank_account='${bankAccount}', bank_host='${bankHost}', bank_holder_name='${bankHolderName}' WHERE id=${id}`);
+	const result = await db.query(`UPDATE project SET registered_datetime='${formattedRegisterDate}', project_subject='${projectSubject}', project_description='${projectDescription}', project_keyword='${projectKeyword}', project_date='${formattedProjectDate}', project_time='${projectTime}', project_hour='${projectHour}', bank_account='${bankAccount}', bank_host='${bankHost}', bank_holder_name='${bankHolderName}' WHERE id=${id}`);
 
 	return result;
 }
