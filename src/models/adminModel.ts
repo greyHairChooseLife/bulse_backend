@@ -14,7 +14,8 @@ const getNowForDB = () => {
 
 const getLast = async () => {
 
-	const [result] = await db.query(`SELECT nickname, status FROM admin ORDER BY id DESC LIMIT 1`);
+	//const [result] = await db.query(`SELECT nickname, status FROM admin ORDER BY id DESC LIMIT 1`);
+	const [result] = await db.query(`SELECT nickname, status FROM admin WHERE status=1`);
 
 	return result[0];
 };
